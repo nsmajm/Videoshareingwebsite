@@ -11,8 +11,14 @@ module.exports = {
 
 
   insert: function(concert, callback){
-    var sql = "INSERT INTO contents VALUES (null, ?, ?, ?, ?, ?, ?)";
-    db.executeGetId(sql, [concert.filename, concert.userid,concert.videoupload, concert.thumbnailupload, concert.filecategory,concert.filetype], function(id){
+		var sql = "INSERT INTO contents VALUES (null, ?, ?, ?, ?, ?, ?)";
+    db.executeGetId(sql, [
+												concert.filename, 
+												concert.userid,
+												concert.videoupload, 
+												concert.thumbnailupload,
+												concert.filecategory,
+												concert.filetype], function(id){
       if(id <= 0)
       {
         callback(false);

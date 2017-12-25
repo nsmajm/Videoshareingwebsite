@@ -17,15 +17,15 @@ router.post('/',function(request,response){
 		let uploadObj = {};
 		
 	  if(fields.FileCategory) {
-		uploadObj['FileCategory'] = fields.FileCategory;
+		uploadObj['filecategory'] = fields.FileCategory;
 	   }
 
 	  if(fields.FileType) {
-		uploadObj['FileType'] = fields.FileCategory;
+		uploadObj['filetype'] = fields.FileType;
 	  }
 
 	  if(fields.FileName) {
-		uploadObj['FileName'] = fields.FileCategory;
+		uploadObj['filename'] = fields.FileName;
 	  }
 
 	  let uploadDir = 'public/';
@@ -33,7 +33,7 @@ router.post('/',function(request,response){
 		let fileStrArr = files.UploadFile.name.split('.');
 		let ext = fileStrArr[fileStrArr.length - 1];
 		let fileName = files.UploadFile.name+(new Date()).getTime()+'.' + ext;
-		uploadObj['videoFile'] = uploadDir + fileName;
+		uploadObj['videoupload'] = uploadDir + fileName;
 		let readFileData = fs.readFileSync(files.UploadFile.path);
 		if (readFileData && fs.writeFileSync(uploadDir + fileName, readFileData)) {
 			fs.unlinkSync(files.UploadFile.path);
@@ -44,18 +44,23 @@ router.post('/',function(request,response){
 		let fileStrArr = files.Thumbnail.name.split('.');
 		let ext = fileStrArr[fileStrArr.length - 1];
 		let fileName = files.Thumbnail.name+(new Date()).getTime()+'.' + ext;
-		uploadObj['thumbnailFile'] = uploadDir + fileName;
+		uploadObj['thumbnailupload'] = uploadDir + fileName;
 		let readFileData = fs.readFileSync(files.Thumbnail.path);
 		if (readFileData && fs.writeFileSync(uploadDir + fileName, readFileData)) {
 			fs.unlinkSync(files.Thumbnail.path);
 		}
 	  }
 
-	 console.log(uploadObj, "Your OBject");
-
-	 response.json({
-	  data: uploadObj
-	 });
+	  fileModel.insert(uploadObj, function(success){
+			if(success)
+			{
+				response.redirect('/upload');
+			}
+			else
+			{
+				response.send('Error inserting data');
+			}
+		});
 
 	});
 });
