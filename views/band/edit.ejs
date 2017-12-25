@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style media="screen">
+    h1,h2,h3
+    {
+      text-align : center;
+    }
+    table
+    {
+      width: 20%;
+      color: #330000;
+      align: center;
+    }
+    th
+    {
+      height: 50px;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+	<h2>Edit Concert</h2>
+
+	<br/><br/>
+		<form method="post">
+			<input type="hidden" name="bandid" value="<%= bandId %>">
+			<table align="center">
+				<tr>
+					<td>Band Id</td>
+					<td><%= bandId %></td>
+				</tr>
+				<tr>
+					<td>Band Name</td>
+					<td><input type="text" name="bandname" value="<%= bandName %>"></td>
+				</tr>
+				<tr>
+								<td>Type</td>
+								<td>
+									<select name = "bandtype" id = "quantity">
+										<option value="Rock">Rock</option>
+										<option value="Metal">Metal</option>
+										<option value="Folk">Folk</option>
+										<option value="HeavyMetal">Heavy Metal</option>
+									</select>
+								</td>
+							</tr>
+				<tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Update"></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td><a href="/home">Home</a></td>
+					<td><a href="/band">Back</a></td>
+				</tr>
+			</table>
+		</form>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style media="screen">
+    h1,h2,h3
+    {
+      text-align : center;
+    }
+    table
+    {
+
+      color: #330000;
+      align: center;
+    }
+    th
+    {
+      height: 50px;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+	<h2>Delete Concert</h2>
+
+	<br/><br/>
+		<form method="post">
+			<input type="hidden" name="bandid" value="<%= bandId %>">
+			<table align="center">
+				<tr>
+					<td>Band Id</td>
+					<td><%= bandId %></td>
+				</tr>
+        		<tr>
+					<td>Band Name</td>
+					<td><%= bandName %></td>
+				</tr>
+        		<tr>
+					<td>Band Type</td>
+					<td><%= bandType %></td>
+				</tr>
+				<tr>
+
+				</tr>
+
+				<tr>
+					<td><input type="submit" value="Confirm Delete"> </td>
+					<td><a href = "/band"> Cancel</td>
+				</tr>
+				<tr>
+
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+			</table>
+
+			<br><br>
+			<h3><a href="/home">Back to Home</a></h3>
+		</form>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style media="screen">
+    h1,h2,table,h3
+    {
+      text-align : center;
+    }
+    table
+    {
+      width: 20%;
+      color: #330000;
+      align: center;
+    }
+    th
+    {
+      height: 50px;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h2>Add Concert</h2>
+    <form method="post">
+      <table align="center">
+        <tr>
+          <td>Band Name</td>
+          <td><input type="text" name="bandname"></td>
+        </tr>
+        <tr>
+								<td>Type</td>
+								<td>
+									<select name = "bandtype" id = "quantity">
+									  <option value="Rock">Rock</option>
+									  <option value="Metal">Metal</option>
+									  <option value="Folk">Folk</option>
+									  <option value="HeavyMetal">Heavy Metal</option>
+									</select>
+								</td>
+							</tr>
+        <tr>
+          <td></td>
+          <td><input type="submit" value="Submit"></td>
+        </tr>
+        <tr>
+
+          <td> <a href="/band">Back</a> </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</body>
+</html>

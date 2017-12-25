@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style media="screen">
+    h1,h2,h3
+    {
+      text-align : center;
+    }
+    table
+    {
+
+      color: #330000;
+      align: center;
+    }
+    th
+    {
+      height: 50px;
+      color: black;
+    }
+  </style>
+</head>
+<body style="background-color:orange">
+	<h2>Delete Concert</h2>
+
+	<br/><br/>
+		<form method="post">
+			<input type="hidden" name="concertno" value="<%= concertNo %>">
+			<table align="center">
+				<tr>
+					<td>Concert No</td>
+					<td><%= concertNo %></td>
+				</tr>
+        <tr>
+					<td>Band Name</td>
+					<td><%= bandName %></td>
+				</tr>
+        <tr>
+					<td>Concert Name</td>
+					<td><%= concertName %></td>
+				</tr>
+        <tr>
+					<td>Concert Date & Time</td>
+					<td><%= concertDateTime %></td>
+				</tr>
+        <tr>
+					<td>Concert Venue</td>
+					<td><%= concertVenue %></td>
+				</tr>
+        <tr>
+					<td>Ticket Quantity</td>
+					<td><%= ticketQuantity %></td>
+				</tr>
+        <tr>
+					<td>Ticlet Price</td>
+					<td><%= perTicketPrice %></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Confirm Delete"> <a href = "/concert"> Cancel</td>
+				</tr>
+			</table>
+			<br><br>
+			<h3><a href="/concert">Back</a> |
+				<a href="/home">Home</a></h3>
+		</form>
+</body>
+</html>

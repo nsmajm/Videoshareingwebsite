@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style media="screen">
+    h1,h2,h3
+    {
+      text-align : center;
+			font-size: 25px;
+
+    }
+    table
+    {
+
+      text-align : center;
+      color: #330000;
+      align: center;
+			height: 20px;
+			width: 20px;
+			font-size: 25px;
+    }
+    th
+    {
+      height: 50px;
+      color: black;
+    }
+  </style>
+</head>
+
+<body style="background-color:orange">
+
+
+	<h2>Ticket Purchase</h2>
+
+	<br/><br/>
+	<table border="2" align="center">
+		<tr>
+			<th>bandName</th>
+			<th>concertNo</th>
+			<th>concertName</th>
+			<th>concertDateTime</th>
+			<th>concertVenue</th>
+			<th>ticketQuantity</th>
+			<th>perTicketPrice</th>
+			<th>option</th>
+		</tr>
+		<% for(var i = 0; i < catList.length; i++) {%>
+		<tr>
+			<td><%= catList[i].bandName %></td>
+			<td><%= catList[i].concertNo %></td>
+			<td><%= catList[i].concertName %></td>
+			<td><%= catList[i].concertDateTime %></td>
+			<td><%= catList[i].concertVenue %></td>
+			<td><%= catList[i].ticketQuantity %></td>
+			<td><%= catList[i].perTicketPrice %></td>
+			<td><a href="/concert/edit/<%= catList[i].concertNo %>">Edit</a>
+				| <a href="/concert/delete/<%= catList[i].concertNo %>">Delete</a></td>
+		</tr>
+		<% } %>
+	</table>
+
+
+	<br><br>
+	<h3><a href="/concert/create"> Add Another Concert </a></h3>
+	<h3><a href="/home">Back</a></h3>
+</body>
+</html>

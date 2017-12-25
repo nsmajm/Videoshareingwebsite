@@ -1,0 +1,45 @@
+<% include ../inc/header.ejs %> <!-- For Header include Head and body start tag-->
+
+    <div class="container">
+     <div class="col-md-10 setpad" >
+        <div class="alert alert-primary" role="alert">
+            <h1 style="text-align:center">User Register</h1>
+          </div>
+      <form method="post">
+        <div class="form-group">
+            <label for="firstname">FirstName</label>
+            <input type="text" name="firstname" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter First Name">
+         </div>       
+        <div class="form-group">
+            <label for="usernmae">LastName</label>
+            <input type="text" name="lastname" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Enter lastname">
+         </div> 
+       
+        <div class="form-group">
+          <label for="usernmae">UserName</label>
+          <input type="text" name="username" class="form-control" id="UserName" aria-describedby="emailHelp" placeholder="Enter UserName">
+
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="email">
+              </div>
+        
+        <input type="submit" class="btn btn-info" value="Sign Up"/>
+      </form> 
+      <table class="table table-responsive">
+          <tr>
+           
+            <td>Already Have an Account !! <a href="/login">Click Here</a> </td>
+          </tr>
+        </table>
+     </div>
+    </div>
+        
+  <% include ../inc/footer.ejs %><!-- For Footer include  js and jq file-->
+
+  

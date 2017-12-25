@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style media="screen">
+    h1,h2,h3
+    {
+      text-align : center;
+    }
+    table
+    {
+
+
+      color: #330000;
+      align: center;
+    }
+    th
+    {
+      height: 50px;
+      color: black;
+    }
+  </style>
+</head>
+
+<body style="background-color:orange">
+<table border="2" align="center">
+	<h2>Edit Concert</h2>
+
+	<br/><br/>
+		<form method="post">
+			<input type="hidden" name="concertno" value="<%= concertNo %>">
+			<table  align="center">
+				<tr>
+					<td>Concert No</td>
+					<td><%= concertNo %></td>
+				</tr>
+				<tr>
+					<td>Band Name</td>
+					<td><input type="text" name="bandname" value="<%= bandName %>"></td>
+				</tr>
+        <tr>
+					<td>Concert Name</td>
+					<td><input type="text" name="concertname" value="<%= concertName %>"></td>
+				</tr>
+        <tr>
+					<td>Concert Date & Time</td>
+					<td><input type="text" name="concertdate" value="<%= concertDateTime %>"></td>
+				</tr>
+        <tr>
+					<td>Concert Venue</td>
+					<td><input type="text" name="concertvenue" value="<%= concertVenue %>"></td>
+				</tr>
+        <tr>
+					<td>Ticket Quantity</td>
+					<td><input type="text" name="quantity" value="<%= ticketQuantity %>"></td>
+				</tr>
+        <tr>
+					<td>Ticket Price</td>
+					<td><input type="text" name="price" value="<%= perTicketPrice %>"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Update"></td>
+				</tr>
+			</table>
+		</form>
+
+		<br><br>
+		<h3><a href="/concert">Back</a> | <a href="/home">Home</a></h3>
+</body>
+</html>

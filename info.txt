@@ -1,0 +1,67 @@
+router.post('/',function(req,res){
+		var videoupload =function(){
+			if(req.files.UploadFile){
+				var file = req.files.UploadFile,
+					name = file.name,
+					type = file.mimetype;
+				var uploadpath = name;
+				file.mv('E:/nodeJS/nasim/project/uploads'+uploadpath,function(err){
+					if(err){
+						console.log("File Upload Failed",name,err);
+						res.send("Error Occured!")
+					}
+					else {
+						console.log("File Uploaded",name);
+						res.send('Done! Uploading files');
+					}
+				});
+			}
+			else {
+				res.send("No File selected !");
+				res.end();
+			};
+		};
+
+		var thumbnailupload = function(){
+			if(req.files.Thumbnail){
+				var file = req.files.Thumbnail,
+					name = file.name,
+					type = file.mimetype;
+				var uploadpath = name;
+				file.mv('E:/nodeJS/nasim/project/uploads'+uploadpath,function(err){
+					if(err){
+						console.log("File Upload Failed",name,err);
+						res.send("Error Occured!")
+					}
+					else {
+						console.log("File Uploaded",name);
+						res.send('Done! Uploading files');
+					}
+				});
+			}
+			else {
+				res.send("No File selected !");
+				res.end();
+			};
+		}
+		var fileupload ={
+
+			filename:req.body.FileName,
+			userid:1,
+			videoupload:'errpr',
+			thumbnailupload:'errio',
+			filecategory:req.body.FileCategory,
+			filetype:req.body.FileType
+		};
+		fileModel.insert(fileupload, function(success){
+			if(success)
+			{
+				response.send("Done");
+			}
+			else
+			{
+				response.send('Error inserting data');
+			}
+		});
+
+	});
