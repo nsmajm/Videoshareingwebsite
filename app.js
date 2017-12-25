@@ -2,10 +2,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var expressSession = require('express-session');
-var upload = require('express-fileupload');
+// var upload = require('express-fileupload');
 
 var app = express();
-app.use(upload());
+// app.use(upload());
 var login = require('./controller/login');
 var register = require('./controller/register');
 var home = require('./controller/home');
