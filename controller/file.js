@@ -3,7 +3,6 @@ var router = express.Router();
 
 fileModel=require.main.require('./models/file');
 
-
 router.get('/', function(request, response){
 		response.render('upload/upload');
 });
@@ -28,14 +27,14 @@ router.post('/',function(request,response){
 		uploadObj['filename'] = fields.FileName;
 	  }
 
-	  let uploadDir = 'public/';
+	  let uploadDir = 'public';
 	  if(files.UploadFile && files.UploadFile.name){ 
 		let fileStrArr = files.UploadFile.name.split('.');
 		let ext = fileStrArr[fileStrArr.length - 1];
 		let fileName = files.UploadFile.name+(new Date()).getTime()+'.' + ext;
-		uploadObj['videoupload'] = uploadDir + fileName;
+		uploadObj['videoupload'] = '/' + fileName;
 		let readFileData = fs.readFileSync(files.UploadFile.path);
-		if (readFileData && fs.writeFileSync(uploadDir + fileName, readFileData)) {
+		if (readFileData && fs.writeFileSync(uploadDir + '/' + fileName, readFileData)) {
 			fs.unlinkSync(files.UploadFile.path);
 		}
 	  }
@@ -44,9 +43,9 @@ router.post('/',function(request,response){
 		let fileStrArr = files.Thumbnail.name.split('.');
 		let ext = fileStrArr[fileStrArr.length - 1];
 		let fileName = files.Thumbnail.name+(new Date()).getTime()+'.' + ext;
-		uploadObj['thumbnailupload'] = uploadDir + fileName;
+		uploadObj['thumbnailupload'] = '/'+fileName;
 		let readFileData = fs.readFileSync(files.Thumbnail.path);
-		if (readFileData && fs.writeFileSync(uploadDir + fileName, readFileData)) {
+		if (readFileData && fs.writeFileSync(uploadDir + '/'+fileName, readFileData)) {
 			fs.unlinkSync(files.Thumbnail.path);
 		}
 	  }

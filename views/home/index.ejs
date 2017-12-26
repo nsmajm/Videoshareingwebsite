@@ -1,8 +1,40 @@
 <% include ../inc/header.ejs %>
 <% include ../inc/navbar.ejs %>
 
+<div class=" row" >
 
+  <div class="col-md-3">
+    <div class="sidebar" >
+        <div class="list-group">
+            <span href="#" class="list-group-item active">
+                Category
+                <span class="pull-right" id="slide-submenu">
+                    <i class="fa fa-times"></i>
+                </span>
+            </span>
+            <a href="#" class="list-group-item">
+                <i class="fa fa-folder-open-o"></i> Rock
+            </a>
+            <a href="#" class="list-group-item">
+                <i class="fa fa-bar-chart-o"></i> Folk
+            </a>
+           
+        </div>  
+    </div>
+  </div>
+  <% for(var i = 0; i < catList.length; i++) {%>
+     <div class="col-md-3" style="padding-bottom: 30px;border: 1px solid #efefef;padding-right:10px;">
+         <img src="http://localhost:1337<%= catList[i].filepicture %>" alt="" class="img-thumbnail"style="height: 257px !important;">
+          <div class="description">
+              <span >Category Name :</span> <a class="pull-right" href="#"><%= catList[i].category %></a>
+              <hr>
+              <div class="title">
+                  <p><a style="color: #000;padding-bottom: 10px;text-align:center" href="#"><%= catList[i].filename %></a></p>
+              </div>
+          </div>
+      </div>
 
+      <% } %>
+</div>
 
-
-  <% include ../inc/footer.ejs %>
+<% include ../inc/footer.ejs %>

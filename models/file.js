@@ -9,6 +9,13 @@ module.exports = {
 		});
 	},
 
+	getAllVideos: function(callback){
+		var sql = "SELECT * FROM contents";
+		db.getResult(sql,null, function(result){
+			callback(result);
+		});
+	},
+
 
   insert: function(concert, callback){
 		var sql = "INSERT INTO contents VALUES (null, ?, ?, ?, ?, ?, ?)";
