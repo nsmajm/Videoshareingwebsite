@@ -3,6 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var expressSession = require('express-session');
 // var upload = require('express-fileupload');
+var path = require('path');
 
 var app = express();
 // app.use(upload());
@@ -24,6 +25,7 @@ app.set('view engine', 'ejs');
 // MIDDLEWARES
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(expressSession({secret: 'my top secret password', saveUninitialized: true, resave: false}));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ROUTES
 app.use('/login', login);
